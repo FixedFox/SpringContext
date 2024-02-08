@@ -1,7 +1,5 @@
 package ru.fixedfox.data;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Map;
 
 public class Student {
@@ -9,4 +7,12 @@ public class Student {
 
     public Map<String,Integer> mapOfSubjectGrades;
     public boolean enrolled = false;
+
+    public float getAverageGrade(){
+        return (float) mapOfSubjectGrades
+                .values()
+                .stream()
+                .reduce(Integer::sum)
+                .orElse(0) / mapOfSubjectGrades.size();
+    }
 }

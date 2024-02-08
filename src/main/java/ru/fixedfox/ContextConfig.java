@@ -19,7 +19,7 @@ public class ContextConfig {
         var student = new Student();
         student.name = "Rayan";
         student.mapOfSubjectGrades =
-                new HashMap<String, Integer>(
+                new HashMap<>(
                         Map.of(
                                 "Math", 3,
                                 "Language", 2,
@@ -33,11 +33,11 @@ public class ContextConfig {
         var student = new Student();
         student.name = "James";
         student.mapOfSubjectGrades =
-                new HashMap<String, Integer>(
+                new HashMap<>(
                         Map.of(
-                                "Math", 3,
-                                "Language", 4,
-                                "IT", 3));
+                                "Math", 5,
+                                "Language", 1,
+                                "IT", 1));
 
         return student;
     }
@@ -45,19 +45,20 @@ public class ContextConfig {
     @Bean
     public Student studentJil() {
         var student = new Student();
-        student.name = "Jil";student.mapOfSubjectGrades =
-                new HashMap<String, Integer>(
+        student.name = "Jil";
+        student.mapOfSubjectGrades =
+                new HashMap<>(
                         Map.of(
-                                "Math", 2,
-                                "Language", 2,
-                                "IT", 2));
+                                "Math", 5,
+                                "Language", 1,
+                                "IT", 1));
 
         return student;
     }
 
     @Bean
     public List<Student> studentBean() {
-        return new ArrayList<Student>(
+        return new ArrayList<>(
                 List.of(
                         studentRayan(),
                         studentJames(),
