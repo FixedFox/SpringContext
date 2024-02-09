@@ -1,13 +1,19 @@
 package ru.fixedfox;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.fixedfox.data.Teacher;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ru.fixedfox.model.contexts.ApplicationContext;
+import ru.fixedfox.model.data.Teacher;
 
 public class Main {
     public static void main(String[] args) {
-        var javaConfigContext = new AnnotationConfigApplicationContext(ContextConfig.class);
-        Teacher teacherJoe = (Teacher) javaConfigContext.getBean("teacherBean");
-        System.out.println("");
+        var javaConfigContext = new AnnotationConfigApplicationContext(ApplicationContext.class);
+        var xmlConfigContext = new ClassPathXmlApplicationContext("XmlApplicationContext.xml");
+
+        Teacher teacherJoe = (Teacher) javaConfigContext.getBean("teacher");
+        Teacher teacherPhillip = (Teacher) xmlConfigContext.getBean("teacher");
+
+        javaConfigContext.close();
+        xmlConfigContext.close();
     }
 }

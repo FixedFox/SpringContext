@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="ru.fixedfox.model.data"/>
+
+    <bean id="teacher" class="ru.fixedfox.model.data.Teacher">
+    </bean>
+
+    <bean id="studentJamie" class="ru.fixedfox.model.data.Student">
+        <property name="name" value="Jamie"/>
+        <property name="mapOfSubjectGrades">
+            <map>
+                <entry key="Physic" value="2"/>
+                <entry key="Biology" value="2"/>
+                <entry key="Chemistry" value="3"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="studentJil" class="ru.fixedfox.model.data.Student">
+        <property name="name" value="Jil"/>
+        <property name="mapOfSubjectGrades">
+            <map>
+                <entry key="Physic" value="5"/>
+                <entry key="Biology" value="1"/>
+                <entry key="Chemistry" value="1"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="studentBrayan" class="ru.fixedfox.model.data.Student">
+        <property name="name" value="Brayan"/>
+        <property name="mapOfSubjectGrades">
+            <map>
+                <entry key="Physic" value="5"/>
+                <entry key="Biology" value="4"/>
+                <entry key="Chemistry" value="3"/>
+            </map>
+        </property>
+    </bean>
+</beans>

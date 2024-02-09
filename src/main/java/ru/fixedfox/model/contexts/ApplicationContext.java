@@ -1,29 +1,27 @@
-package ru.fixedfox;
+package ru.fixedfox.model.contexts;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import ru.fixedfox.data.Student;
+import ru.fixedfox.model.data.Student;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Configuration
-@ComponentScan("ru.fixedfox")
-public class ContextConfig {
+@ComponentScan("ru.fixedfox.model.data")
+public class ApplicationContext {
 
     @Bean
     public Student studentRayan() {
         var student = new Student();
-        student.name = "Rayan";
-        student.mapOfSubjectGrades =
+        student.setName("Rayan");
+        student.setMapOfSubjectGrades(
                 new HashMap<>(
                         Map.of(
                                 "Math", 3,
                                 "Language", 2,
-                                "IT", 5));
+                                "IT", 5)));
 
         return student;
     }
@@ -31,13 +29,13 @@ public class ContextConfig {
     @Bean
     public Student studentJames() {
         var student = new Student();
-        student.name = "James";
-        student.mapOfSubjectGrades =
+        student.setName("James");
+        student.setMapOfSubjectGrades(
                 new HashMap<>(
                         Map.of(
                                 "Math", 5,
                                 "Language", 1,
-                                "IT", 1));
+                                "IT", 1)));
 
         return student;
     }
@@ -45,23 +43,14 @@ public class ContextConfig {
     @Bean
     public Student studentJil() {
         var student = new Student();
-        student.name = "Jil";
-        student.mapOfSubjectGrades =
+        student.setName("Jil");
+        student.setMapOfSubjectGrades(
                 new HashMap<>(
                         Map.of(
                                 "Math", 5,
                                 "Language", 1,
-                                "IT", 1));
+                                "IT", 1)));
 
         return student;
-    }
-
-    @Bean
-    public List<Student> studentBean() {
-        return new ArrayList<>(
-                List.of(
-                        studentRayan(),
-                        studentJames(),
-                        studentRayan()));
     }
 }
