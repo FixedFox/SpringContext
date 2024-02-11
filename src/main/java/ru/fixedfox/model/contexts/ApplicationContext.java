@@ -10,6 +10,7 @@ import java.util.Map;
 
 @Configuration
 @ComponentScan("ru.fixedfox.model.data")
+@ComponentScan("ru.fixedfox.model.beanpostprocessors")
 public class ApplicationContext {
 
     @Bean

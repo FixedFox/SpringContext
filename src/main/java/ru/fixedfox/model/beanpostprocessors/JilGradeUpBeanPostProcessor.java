@@ -10,23 +10,10 @@ public class JilGradeUpBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof Student) {
-            if (((Student) bean).getName().equals("Jil")) {
+            Student student = (Student) bean;
+            if (student.getName().equals("Jil")) {
                 System.out.println("У Jil плохие оценки. Надо исправить.");
-
-                while (((Student) bean).getAverageGrade() < 3.0F) {
-                    for (String subject : ((Student) bean).getMapOfSubjectGrades().keySet()) {
-                        if (((Student) bean).getMapOfSubjectGrades().get(subject) <= 4) {
-                            ((Student) bean).getMapOfSubjectGrades()
-                                    .replace(subject,
-                                            ((Student) bean).getMapOfSubjectGrades().get(subject) + 1);
-                        } else {
-                            continue;
-                        }
-                        if (((Student) bean).getAverageGrade() >= 3.0F) {
-                            break;
-                        }
-                    }
-                }
+                student.getMapOfSubjectGrades().replaceAll((k, value) -> value = 5);
             }
         }
         return bean;
